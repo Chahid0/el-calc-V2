@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Calc - Lois de base</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="section-header">
+        <a href="index.html" class="back-btn">◀ Retour</a>
+        <div class="title">⚡ Lois de base</div>
+        <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main class="container section active">
+        <!-- قانون أوم -->
+        <div class="calc-box">
+            <h3>Loi d'Ohm</h3>
+            <select id="ohm-calc" onchange="updateOhmFields()">
+                <option value="U">Calculer la Tension (U)</option>
+                <option value="I">Calculer le Courant (I)</option>
+                <option value="R">Calculer la Résistance (R)</option>
+            </select>
+            <div id="ohm-field-U" style="display:none;">
+                <input type="number" id="ohm-U" placeholder="Tension (U) en V">
+            </div>
+            <div id="ohm-field-I">
+                <input type="number" id="ohm-I" placeholder="Courant (I) en A">
+            </div>
+            <div id="ohm-field-R">
+                <input type="number" id="ohm-R" placeholder="Résistance (R) en Ω">
+            </div>
+            <button onclick="calcOhm()">Calculer</button>
+            <div id="ohm-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="ohm-result" class="result">
+                <strong id="ohm-val"></strong><br>
+                <small id="ohm-detail"></small>
+            </div>
+        </div>
+
+        <!-- القدرة الكهربائية -->
+        <div class="calc-box">
+            <h3>Puissances (Active, Réactive, Apparente)</h3>
+            <select id="p-type">
+                <option value="mono">Monophasé</option>
+                <option value="tri">Triphasé</option>
+            </select>
+            <input type="number" id="p-U" placeholder="Tension (U) en V">
+            <input type="number" id="p-I" placeholder="Courant (I) en A">
+            <input type="number" id="p-cos" placeholder="Facteur de puissance (cos φ)">
+            <button onclick="calcPuissance()">Calculer</button>
+            <div id="p-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="p-result" class="result">
+                <strong id="p-val"></strong><br>
+                <small id="p-detail"></small>
+            </div>
+        </div>
+        
+        <button class="lesson-btn" onclick="openLesson('ohm')">📖 Lire le cours : Loi d'Ohm</button>
+        <button class="lesson-btn" style="margin-top:10px;" onclick="openLesson('puissance')">📖 Lire le cours : Puissances</button>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="close-btn" onclick="closeModalBtn()">❌</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

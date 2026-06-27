@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Calc - Accueil</title>
+    
+    <!-- ربط ملفات التصميم والبرمجة -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- ربط ملف PWA ليعمل التطبيق بدون إنترنت -->
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">⚡ El Calc</div>
+        <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main class="container">
+        <h1 class="welcome-title">Bienvenue sur El Calc</h1>
+        <p class="subtitle">Choisissez l'outil que vous souhaitez utiliser :</p>
+
+        <!-- شبكة الأقسام (كل قسم عبارة عن رابط لصفحة جديدة) -->
+        <div class="cards-grid">
+            <a href="moteurs.html" class="card">
+                <div class="icon">⚙️</div>
+                <h3>Moteurs</h3>
+                <p>Vitesse, Glissement, Rendement...</p>
+            </a>
+            
+            <a href="transformateurs.html" class="card">
+                <div class="icon">🔄</div>
+                <h3>Transformateurs</h3>
+                <p>Rapport, Rendement, Courants...</p>
+            </a>
+            
+            <a href="cablage.html" class="card">
+                <div class="icon">📏</div>
+                <h3>Câblage</h3>
+                <p>Section des câbles, Chute de tension...</p>
+            </a>
+            
+            <a href="lois.html" class="card">
+                <div class="icon">⚡</div>
+                <h3>Lois de base</h3>
+                <p>Ohm, Puissances...</p>
+            </a>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>Powered by <strong>SMEI Solutions</strong></p>
+    </footer>
+
+    <!-- ربط ملف JavaScript الأساسي -->
+    <script src="script.js"></script>
+    
+    <!-- تفعيل خدمة العمل بدون إنترنت -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
+</body>
+</html>

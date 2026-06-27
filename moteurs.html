@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Calc - Moteurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="section-header">
+        <!-- زر الرجوع الحقيقي للصفحة الرئيسية -->
+        <a href="index.html" class="back-btn">◀ Retour</a>
+        <div class="title">⚙️ Moteurs</div>
+        <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main class="container section active">
+        <!-- أداة حساب الانزلاق -->
+        <div class="calc-box">
+            <h3>Calcul du Glissement (g)</h3>
+            <input type="number" id="g-Ns" placeholder="Vitesse de synchronisme (Ns)">
+            <input type="number" id="g-Nr" placeholder="Vitesse du rotor (Nr)">
+            <button onclick="calcGlissement()">Calculer</button>
+            <div id="g-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="g-result" class="result">
+                <strong id="g-val"></strong><br>
+                <small id="g-detail"></small>
+            </div>
+        </div>
+
+        <!-- أداة حساب السرعة -->
+        <div class="calc-box">
+            <h3>Vitesse de Synchronisme (Ns)</h3>
+            <input type="number" id="ns-f" placeholder="Fréquence (f) en Hz" value="50">
+            <input type="number" id="ns-p" placeholder="Paires de pôles (p)">
+            <button onclick="calcVitesse()">Calculer</button>
+            <div id="ns-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="ns-result" class="result">
+                <strong id="ns-val"></strong><br>
+                <small id="ns-detail"></small>
+            </div>
+        </div>
+        
+        <!-- زر فتح الدرس -->
+        <button class="lesson-btn" onclick="openLesson('moteur')">📖 Lire le cours : MAT</button>
+    </main>
+
+    <!-- النافذة المنبثقة للدروس (Modal) -->
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="close-btn" onclick="closeModalBtn()">❌</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ربط نفس ملف JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

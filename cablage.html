@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Calc - Câblage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="section-header">
+        <a href="index.html" class="back-btn">◀ Retour</a>
+        <div class="title">📏 Câblage</div>
+        <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main class="container section active">
+        <div class="calc-box">
+            <h3>Section des Câbles (Chute de tension)</h3>
+            <select id="cab-type">
+                <option value="mono">Monophasé (230V)</option>
+                <option value="tri">Triphasé (400V)</option>
+            </select>
+            <select id="cab-mat">
+                <option value="0.0225">Cuivre (ρ = 0.0225)</option>
+                <option value="0.036">Aluminium (ρ = 0.036)</option>
+            </select>
+            <input type="number" id="cab-I" placeholder="Courant d'emploi (I) en A">
+            <input type="number" id="cab-L" placeholder="Longueur du câble (L) en m">
+            <input type="number" id="cab-du-perc" placeholder="Chute de tension max (ex: 3%)" value="3">
+            <input type="number" id="cab-cos" placeholder="Facteur de puissance (cos φ)" value="0.85">
+            <button onclick="calcSection()">Calculer</button>
+            <div id="cab-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="cab-result" class="result">
+                <strong id="cab-val"></strong><br>
+                <small id="cab-detail"></small>
+            </div>
+        </div>
+
+        <button class="lesson-btn" onclick="openLesson('protection')">📖 Lire le cours : Protections</button>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="close-btn" onclick="closeModalBtn()">❌</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

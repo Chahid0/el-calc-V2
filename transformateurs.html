@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Calc - Transformateurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="section-header">
+        <a href="index.html" class="back-btn">◀ Retour</a>
+        <div class="title">🔄 Transformateurs</div>
+        <button id="theme-btn" class="theme-btn" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main class="container section active">
+        <!-- أداة نسبة التحويل -->
+        <div class="calc-box">
+            <h3>Rapport de Transformation (m)</h3>
+            <input type="number" id="m-U1" placeholder="Tension Primaire (U1)">
+            <input type="number" id="m-U2" placeholder="Tension Secondaire (U2)">
+            <button onclick="calcRapport()">Calculer</button>
+            <div id="m-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="m-result" class="result">
+                <strong id="m-val"></strong><br>
+                <small id="m-detail"></small>
+            </div>
+        </div>
+
+        <!-- أداة حساب التيارات -->
+        <div class="calc-box">
+            <h3>Courants Primaire / Secondaire</h3>
+            <select id="ti-calc">
+                <option value="I1">Calculer I1 (Primaire)</option>
+                <option value="I2">Calculer I2 (Secondaire)</option>
+            </select>
+            <input type="number" id="ti-S" placeholder="Puissance Apparente (S) en VA">
+            <input type="number" id="ti-U1" placeholder="Tension Primaire (U1) en V">
+            <input type="number" id="ti-U2" placeholder="Tension Secondaire (U2) en V">
+            <button onclick="calcCourantsTransfo()">Calculer</button>
+            <div id="ti-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="ti-result" class="result">
+                <strong id="ti-val"></strong><br>
+                <small id="ti-detail"></small>
+            </div>
+        </div>
+
+        <!-- أداة حساب المردودية -->
+        <div class="calc-box">
+            <h3>Rendement du Transformateur (η)</h3>
+            <input type="number" id="rt-P2" placeholder="Puissance Utile Secondaire (P2) en W">
+            <input type="number" id="rt-Pfer" placeholder="Pertes Fer (Pfer) en W">
+            <input type="number" id="rt-Pcu" placeholder="Pertes Cuivre (Pcu) en W">
+            <button onclick="calcRendementTransfo()">Calculer</button>
+            <div id="rt-err" class="error" style="display:none;">⚠️ Veuillez entrer des valeurs valides.</div>
+            <div id="rt-result" class="result">
+                <strong id="rt-val"></strong><br>
+                <small id="rt-detail"></small>
+            </div>
+        </div>
+
+        <button class="lesson-btn" onclick="openLesson('transformateur')">📖 Lire le cours : Transformateur</button>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <button class="close-btn" onclick="closeModalBtn()">❌</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
